@@ -1,0 +1,27 @@
+1.1
+
+1.
+  Q: Identify the prompt, command, options, arguments, and curser of a command.
+
+  A: [projects]$ rm -f foo.text
+
+      [projects]$ = prompt
+      rm          = command
+      -f          = option
+      foo.txt     = argument
+
+1.2
+
+1.
+  Q: Write a command that prints out the string "hello, world" in two different ways.
+
+  A: 1. echo hello, world
+
+     2. echo -n "hello, world"
+
+1.6
+
+1.
+  Q: By running man sleep, figure out ow to make the terminal "sleep" for 5 seconds
+
+  A: sleep 5
