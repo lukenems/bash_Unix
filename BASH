@@ -1,0 +1,250 @@
+                        BASH_Exercises
+
+
+2.1
+Q: A good place to start is to create a simple script which
+will accept some command line arguments and echo out some details about them
+(eg, how many are there, what is the secone one etc).
+
+A: #!/bin/bash
+
+myvar='Hello'
+number='2'
+
+echo $myvar
+echo "How many are there with you?"
+echo ---------------------------
+echo $number ",but other will join us"
+
+2.4
+
+Q:Take a copy of the two files script1.sh and script2.sh above then experiment by
+tweaking them and running them and observing the output.
+This will help you get a feel for how exporting variables works.
+
+A:
+Script 1
+#!/bin/bash
+
+
+var1=blah
+var2=foo
+
+echo $0 :: var1 : $var1, var2 : $var2
+
+export var1
+./script2.sh
+
+
+echo $0 :: var1 : $var1, var2 : $var2
+
+#By determining which variables will be exported, will determine what happens inside the second script.
+
+#When declaring variables in #script2.sh, variables are only reflect the values
+#if they are assigned before the line where the variable is called for
+
+Script 2
+#!/bin/bash
+var2=bleh
+
+echo $0 :: var1 : $var1, var2 : $var2
+
+3.1
+
+Q: Create a simple script which will
+ask the user for a few pieces of information then combine this
+into a message which is echo'd to the screen.
+
+A:
+#!/bin/bash
+
+echo "What is your name"
+read name
+
+echo "Nice to meet you" $name
+
+echo "Where are you from"
+read location
+
+echo "Oh, thats interesting. I heard" $location "has great weather"
+
+3.2
+Q: Add to the previous
+script to add in some data coming from command line arguments
+and maybe some of the other system variables.
+
+A:
+#!/bin/bash
+# Simple variable
+currentTime=$(date)
+
+echo "What is your name"
+read name
+
+echo "Nice to meet you" $name
+
+echo "Where are you from"
+read location
+
+echo " Oh, thats interesting. I heard" $location "has great weather"
+
+echo '"Oh do you know what time it is"
+
+echo " Uh yeah, it's" $currentTime
+
+4.1
+
+Q:Create a simple script which will take two command line arguments
+and then multiply them together using each of the methods detailed above.
+
+A:
+#!/bin/bash
+
+#Lets
+let a=9*9
+echo $a
+
+#Express
+Expr 9 \* 9
+
+#Double paranthese
+b=$((9 * 9))
+echo $b
+
+4.2
+
+Q:Write a Bash script which will print tomorrows date.
+
+A:
+#!/bin/bash
+
+date -v +1d
+
+4.3
+
+Q:Remember when we looked at variables we discovered $RANDOM will return a random number.
+ This number is between 0 and 32767 which is not always the most useful. Lets write a script
+which will use this variable and some arithmetic to return a random number between 0 and 100.
+
+A:
+#!/bin/bash
+
+varnum=100
+
+expr $RANDOM % $varnum
+
+4.4
+Q: Now let's play with the previous script. Modify it so that you can specify as a command line argument
+the upper limit of the random number. Can you make it so that a lower limit can be specified also? eg.
+if I ran ./random.sh 10 45 it would only return random numbers between 10 and 45.
+
+A:
+#!/bin/bash
+varnum=100
+num1="10"
+num2="45"
+
+
+let "a = $RANDOM % $varnum"
+if [ "$a" -gt "$num1" ] && [ "$a" -le "$num2" ]
+ then
+   echo $a
+ else
+   until [ $a -gt "$num1" ] && [ "$a" -le "$num2" ]
+   do
+     let "a = $RANDOM % $varnum"
+   done
+   echo $a
+ fi
+5.1
+ Q: Create a Bash script which will take 2 numbers as command line arguments.
+ It will print to the screen the larger of the two numbers.
+
+ A: #!/bin/bash
+echo Please enter 2 numbers. Print out the highest
+
+read num1
+read num2
+
+if [ "$num1" -gt "$num2" ]
+	then
+	echo "The higher number is " $num1
+else
+	echo "The higher number is " $num2
+fi
+
+5.2
+Q:Create a Bash script which will accept a file as a command line argument
+and analyse it in certain ways. eg. you could check if the file is executable or writable.
+You should print a certain message if true and another if false.
+
+A:
+#!/bin/bash
+
+file="test_1.sh"
+if [[ -x "$file" ]]
+then
+    echo "File '$file' is executable"
+else
+    echo "File '$file' is not executable or found"
+fi
+
+5.3
+
+Q:Create a Bash script which will print a message based upon which day of the
+week it is (eg. 'Happy hump day' for Wedensday, 'TGIF' for Friday etc).
+
+A:
+#!/bin/bash
+#Exercise 5.3
+
+a=$( date | awk '{ print $1 }' )
+
+echo Today is $a'day'
+
+case $a in
+Fri )
+echo Work week is over!
+;;
+Sat )
+echo Time to get out of the house!
+;;
+Sun )
+echo Don\'t think about work just yet
+;;
+Mon )
+echo Day 1, get motivated!
+;;
+Tues )
+echo Get a good lunch today, you\'re working hard
+;;
+Wed )
+echo It\'s only Wednesday?
+;;
+Thurs )
+echo Push through, tomorrow is Friday!
+;;
+esac
+
+6.1
+Q:Create a simple script which will print the numbers 1 - 10
+(each on a separate line)
+and whether they are even or odd.
+
+A:
+#!/bin/bash
+# Basic range with steps for loop
+for value in {0..10}
+do
+echo "counting by "$value
+
+let a="$value % 2"
+if [ $a -eq 0 ]
+	then
+	echo "number is even"
+elif [ $a -eq 1 ]
+	then
+	echo "number is odd"
+fi
+echo
+done

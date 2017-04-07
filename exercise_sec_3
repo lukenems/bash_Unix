@@ -1,0 +1,29 @@
+Section 3
+
+3.1
+
+1.
+  Q:Use the command curl -I https://www.learnenough.com/ to fetch the HTTP header for the Learn Enough website. What is the HTTP status code for the address? How does this differ from the status code for learnenough.com (without the https://)?
+
+  A: curl -I https://www.learnenough.com/
+
+  with https:// the status code is HTTP/1.1 200 OK - which is the standard response
+
+  without http:// the status code is HTTP/ 1.1 301 Moved Permanently - which directs all and future requests to the given URI
+
+2.
+  Q:Using ls, confirm that sonnets.txt exists on your system. How big is it in bytes?
+
+  A: ls -l
+      sonnets.txt is 95635 bytes
+
+3.
+  Q:By adding -h (“human-readable”) option to ls, list the long form of the sonnets file with a human-readable byte count.
+
+  A: ls -lh
+      sonnets.txt is 93K
+
+4.
+  Q:Suppose you wanted to list the files and directories using human-readable byte counts, all, by reverse time-sorted long-form. What command would you use?
+
+  A: ls -lhtr
