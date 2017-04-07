@@ -1,0 +1,81 @@
+2.1
+
+1.
+  Q: Using "echo" and ">", make files called line_1.txt and line_2.txt containing the first and second lines of Sonnet 1, respectively.
+
+  A: echo "From fairest creatures we desire increase," > line_1.txt
+      echo "That therby beauty's rose might never die," > line_2.txt
+
+2.
+  Q: Replicate the original sonnet_1.txt by first redirecting the contents of line_1.txt and then appending the contents of line_2.txt. Call the new file sonnet_1_copy.txt, and confirm using diff that it’s identical to sonnet_1.txt.
+
+  A: echo "That therby beauty's rose might never die," >> line_1.txt
+      mv line_1.txt sonnet_1_copy.txt
+        diff sonnet_1.txt sonnet_1_copy.text
+
+3.
+  Q:Use cat to combine the contents of line_1.txt and line_2.txt in reverse order using a single command, yielding the file sonnet_1_reversed.txt.
+
+  A: cat line_2.txt line_1.txt > sonnet_1_reversed.txt
+
+2.2
+
+1.
+  Q:What’s the command to list all the non-hidden files and directories that start with the letter “s”?
+
+  A: ls s*
+
+2.
+  Q:What is the command to list all the non-hidden files that contain the string “onnet”, long-form by reverse modification time?
+
+  A: ls *onnet*
+
+3.
+  Q:What is the command to list all files (including hidden ones) by reverse modification time, in long form?
+
+  A: ls -l -a -rtl
+
+
+2.3
+
+1.
+  Q:Use the echo command and the redirect operator > to make a file called foo.txt containing the text “hello, world”. Then, using the cp command, make a copy of foo.txt called bar.txt. Using the diff command, confirm that the contents of both files are the same.
+
+  A: echo "hello, world" > foo.txt
+      cp foo.txt bar.txt
+        diff foo.txt bar.txt
+
+2.
+  Q:By combining the cat command and the redirect operator >, create a copy of foo.txt called baz.txt without using the cp command.
+
+  A: cat foo.txt > baz.txt
+
+3.
+  Q:Create a file called quux.txt containing the contents of foo.txt followed by the contents of bar.txt.
+
+  A: cat foo.txt bar.txt > quux.txt
+
+4.
+  Q:How do rm nonexistent and rm -f nonexistent differ for a nonexistent file?
+
+  A: rm prompts for permanent deletion, while rm -f forces the deletion with no prompt
+
+
+2.4
+
+2.
+  Q:Type the sequence of commands needed to create an empty file called foo, rename it to bar, and copy it to baz.
+
+  A: touch foo && mv foo bar && cp bar baz
+
+
+3.
+  Q:What is the command to list only the files starting with the letter “b”?
+
+  A: ls b*
+
+
+4.
+  Q:Remove both bar and baz using a single call to rm.
+
+  A:rm bar baz
