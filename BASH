@@ -1,0 +1,78 @@
+                        BASH_Exercises
+
+
+2.1
+Q: A good place to start is to create a simple script which
+will accept some command line arguments and echo out some details about them
+(eg, how many are there, what is the secone one etc).
+
+A:
+#!/bin/bash
+# Simple variable
+
+myvar='Hello'
+
+echo $myvar
+
+3.1
+
+Q: Create a simple script which will
+ask the user for a few pieces of information then combine this
+into a message which is echo'd to the screen.
+
+A:
+#!/bin/bash
+
+echo "What is your name"
+read name
+
+echo "Nice to meet you" $name
+
+echo "Where are you from"
+read location
+
+echo " Oh, that's interesting. I heard" $location "has great weather"
+
+3.2
+Q: Add to the previous
+script to add in some data coming from command line arguments
+and maybe some of the other system variables.
+
+A:#!/bin/bash
+# Simple variable
+currentTime=$(date)
+
+echo "What is your name"
+read name
+
+echo "Nice to meet you" $name
+
+echo "Where are you from"
+read location
+
+echo " Oh, that's interesting. I heard" $location "has great weather"
+
+echo 'Oh do you know what time it is'
+
+echo " Uh yeah, it's" $currentTime
+
+4.1
+
+Q:Create a simple script which will take two command line arguments
+and then multiply them together using each of the methods detailed above.
+
+A:
+#!/bin/bash
+
+let a=9*9
+echo $a
+
+Expr 9 * 9
+
+b=$((9 * 9))
+echo $b
+
+Q:Write a Bash script which will print tomorrows date.
+
+
+A:
