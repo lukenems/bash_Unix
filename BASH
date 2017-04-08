@@ -6,7 +6,9 @@ Q: A good place to start is to create a simple script which
 will accept some command line arguments and echo out some details about them
 (eg, how many are there, what is the secone one etc).
 
-A: #!/bin/bash
+
+A: 
+#!/bin/bash
 
 myvar='Hello'
 number='2'
@@ -49,6 +51,14 @@ var2=bleh
 
 echo $0 :: var1 : $var1, var2 : $var2
 
+A:
+#!/bin/bash
+# Simple variable
+
+myvar='Hello'
+
+echo $myvar
+
 3.1
 
 Q: Create a simple script which will
@@ -66,7 +76,8 @@ echo "Nice to meet you" $name
 echo "Where are you from"
 read location
 
-echo "Oh, thats interesting. I heard" $location "has great weather"
+
+echo " Oh, that's interesting. I heard" $location "has great weather"
 
 3.2
 Q: Add to the previous
@@ -86,9 +97,9 @@ echo "Nice to meet you" $name
 echo "Where are you from"
 read location
 
-echo " Oh, thats interesting. I heard" $location "has great weather"
+echo " Oh, that's interesting. I heard" $location "has great weather"
 
-echo '"Oh do you know what time it is"
+echo 'Oh do you know what time it is'
 
 echo " Uh yeah, it's" $currentTime
 
